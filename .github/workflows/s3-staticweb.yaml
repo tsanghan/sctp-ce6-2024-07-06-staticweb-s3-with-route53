@@ -3,6 +3,7 @@ name: CloudFront with Route53
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   S3-WtaticWeb-with-Route-53-Deployment:
