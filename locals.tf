@@ -1,7 +1,7 @@
 locals {
   region = "ap-southeast-1"
 
-  bucket_name = "tsanghan-ce6-staticwebsite.sctp-sandbox.com"
+  bucket_name = "tsanghan-ce6-${local.random.Name}-staticwebsite.sctp-sandbox.com"
 
   name = "tsanghan-ce6"
 
@@ -9,4 +9,12 @@ locals {
     Name = "${local.name}"
   }
 
+  random = {
+    Name = "${random_id.server.hex}"
+  }
+
+}
+
+resource "random_id" "server" {
+  byte_length = 4
 }
